@@ -1,42 +1,33 @@
-package com.cooper.paymentService.model;
+package com.cooper.orderService.common;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "payment")
 public class Payment {
-
-
-    @Id
-    @GeneratedValue
     private Long id;
-
-
     private String status;
-
     private String txn;
+    private Long orderId;
+    private Double ammount;
 
-    private int orderId;
+    public Payment(Long id, String status, String txn, Long orderId, Double ammount) {
+        this.id = id;
+        this.status = status;
+        this.txn = txn;
+        this.orderId = orderId;
+        this.ammount = ammount;
+    }
 
-    private int ammount;
-
-    public int getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Long orderId) {
         this.orderId = orderId;
     }
 
-    public int getAmmount() {
+    public Double getAmmount() {
         return ammount;
     }
 
-    public void setAmmount(int ammount) {
+    public void setAmmount(Double ammount) {
         this.ammount = ammount;
     }
 
@@ -71,5 +62,17 @@ public class Payment {
 
     public void setTxn(String txn) {
         this.txn = txn;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                ", txn='" + txn + '\'' +
+                ", orderId=" + orderId +
+                ", ammount=" + ammount +
+                '}';
     }
 }

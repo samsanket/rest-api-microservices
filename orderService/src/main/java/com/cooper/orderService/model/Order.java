@@ -3,7 +3,7 @@ package com.cooper.orderService.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
 
@@ -62,5 +62,16 @@ public class Order {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", qty=" + qty +
+                ", price=" + price +
+                '}';
     }
 }
